@@ -1,0 +1,81 @@
+h1{
+  color: black;
+}
+
+body{
+  background-image: url('/images/47408243-chess-wallpaper.jpg');
+  background-size: cover;
+}
+
+hr{
+  border-color: gold !important;
+  height: 5px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+  border: 3px solid gold;
+  padding: 25px;
+  background-color: lightyellow;
+  margin:0 auto;
+  width:30%;
+
+}
+
+.form-group{
+  margin:0 auto;
+  width: 50%;
+}
+
+#myCanvas{
+  display: block;
+  margin: 0 auto;
+  border:2px solid gold;
+  background-color: white;
+}
+
+
+/////
+
+body {
+  margin: 0;
+  background: #000;
+}
+video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('/images/47408243-chess-wallpaper.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+  opacity: .1;
+}
+
+@media screen and (max-width: 500px) {
+  div{width:70%;}
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(https://thenewcode.com/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+.centerTb {
+  text-align: center;
+  padding: 10px;
+  margin:0 auto;
+  width:30%;
+}
