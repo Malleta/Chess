@@ -24,25 +24,25 @@
 <table id="chess_board" cellpadding="0" cellspacing="0" align="center">
     <tr>
         <td><a href="#">8</a></td>
-        <td id="A8" ng-click="!whoseTurnIs&&move($event,'A8')" ><a href="#" class="black" >&#9820;</a></td>
-        <td id="B8" ng-click="!whoseTurnIs&&move($event,'B8')" ><a href="#" class="black">&#9822;</a></td>
-        <td id="C8" ng-click="!whoseTurnIs&&move($event,'C8')" ><a href="#" class="black">&#9821;</a></td>
-        <td id="D8" ng-click="!whoseTurnIs&&move($event,'D8')"><a href="#" class="black">&#9819;</a></td>
-        <td id="E8" ng-click="!whoseTurnIs&&move($event,'E8')"><a href="#" class="black">&#9818;</a></td>
-        <td id="F8" ng-click="!whoseTurnIs&&move($event,'F8')"><a href="#" class="black">&#9821;</a></td>
-        <td id="G8" ng-click="!whoseTurnIs&&move($event,'G8')"><a href="#" class="black">&#9822;</a></td>
-        <td id="H8" ng-click="!whoseTurnIs&&move($event,'H8')"><a href="#" class="black">&#9820;</a></td>
+        <td id="A8" ng-click="move($event,'A8')" ><a href="#" class="black" >&#9820;</a></td>
+        <td id="B8" ng-click="move($event,'B8')" ><a href="#" class="black">&#9822;</a></td>
+        <td id="C8" ng-click="move($event,'C8')" ><a href="#" class="black">&#9821;</a></td>
+        <td id="D8" ng-click="move($event,'D8')"><a href="#" class="black">&#9819;</a></td>
+        <td id="E8" ng-click="move($event,'E8')"><a href="#" class="black">&#9818;</a></td>
+        <td id="F8" ng-click="move($event,'F8')"><a href="#" class="black">&#9821;</a></td>
+        <td id="G8" ng-click="move($event,'G8')"><a href="#" class="black">&#9822;</a></td>
+        <td id="H8" ng-click="move($event,'H8')"><a href="#" class="black">&#9820;</a></td>
     </tr>
     <tr>
         <td><a href="#">7</a></td>
         <td id="A7" ng-click="move($event,'A7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="B7" ng-click="!whoseTurnIs&&move($event,'B7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="C7" ng-click="!whoseTurnIs&&move($event,'C7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="D7" ng-click="!whoseTurnIs&&move($event,'D7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="E7" ng-click="!whoseTurnIs&&move($event,'E7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="F7" ng-click="!whoseTurnIs&&move($event,'F7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="G7" ng-click="!whoseTurnIs&&move($event,'G7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="H7" ng-click="!whoseTurnIs&&move($event,'H7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="B7" ng-click="move($event,'B7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="C7" ng-click="move($event,'C7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="D7" ng-click="move($event,'D7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="E7" ng-click="move($event,'E7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="F7" ng-click="move($event,'F7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="G7" ng-click="move($event,'G7')"><a href="#" class="black">&#9823;</a></td>
+        <td id="H7" ng-click="move($event,'H7')"><a href="#" class="black">&#9823;</a></td>
     </tr>
     <tr>
         <td><a href="#">6</a></td>
@@ -91,24 +91,24 @@
     <tr>
         <td><a href="#">2</a></td>
         <td id="A2" ng-click="move($event,'A2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="B2" ng-click="whoseTurnIs&&move($event,'B2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="C2" ng-click="whoseTurnIs&&move($event,'C2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="D2" ng-click="whoseTurnIs&&move($event,'D2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="E2" ng-click="whoseTurnIs&&move($event,'E2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="F2" ng-click="whoseTurnIs&&move($event,'F2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="G2" ng-click="whoseTurnIs&&move($event,'G2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="H2" ng-click="whoseTurnIs&&move($event,'H2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="B2" ng-click="move($event,'B2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="C2" ng-click="move($event,'C2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="D2" ng-click="move($event,'D2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="E2" ng-click="move($event,'E2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="F2" ng-click="move($event,'F2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="G2" ng-click="move($event,'G2')"><a href="#" class="white">&#9817;</a></td>
+        <td id="H2" ng-click="move($event,'H2')"><a href="#" class="white">&#9817;</a></td>
     </tr>
     <tr>
         <td><a href="#">1</a></td>
-        <td id="A1" ng-click="whoseTurnIs&&move($event,'A1')"><a href="#" class="white">&#9814;</a></td>
-        <td id="B1" ng-click="whoseTurnIs&&move($event,'B1')"><a href="#" class="white">&#9816;</a></td>
-        <td id="C1" ng-click="whoseTurnIs&&move($event,'C1')"><a href="#" class="white">&#9815;</a></td>
-        <td id="D1" ng-click="whoseTurnIs&&move($event,'D1')"><a href="#" class="white">&#9813;</a></td>
-        <td id="E1" ng-click="whoseTurnIs&&move($event,'E1')"><a href="#" class="white">&#9812;</a></td>
-        <td id="F1" ng-click="whoseTurnIs&&move($event,'F1')"><a href="#" class="white">&#9815;</a></td>
-        <td id="G1" ng-click="whoseTurnIs&&move($event,'G1')"><a href="#" class="white">&#9816;</a></td>
-        <td id="H1" ng-click="whoseTurnIs&&move($event,'H1')"><a href="#" class="white">&#9814;</a></td>
+        <td id="A1" ng-click="move($event,'A1')"><a href="#" class="white">&#9814;</a></td>
+        <td id="B1" ng-click="move($event,'B1')"><a href="#" class="white">&#9816;</a></td>
+        <td id="C1" ng-click="move($event,'C1')"><a href="#" class="white">&#9815;</a></td>
+        <td id="D1" ng-click="move($event,'D1')"><a href="#" class="white">&#9813;</a></td>
+        <td id="E1" ng-click="move($event,'E1')"><a href="#" class="white">&#9812;</a></td>
+        <td id="F1" ng-click="move($event,'F1')"><a href="#" class="white">&#9815;</a></td>
+        <td id="G1" ng-click="move($event,'G1')"><a href="#" class="white">&#9816;</a></td>
+        <td id="H1" ng-click="move($event,'H1')"><a href="#" class="white">&#9814;</a></td>
     </tr>
     <tr>
         <td></td>

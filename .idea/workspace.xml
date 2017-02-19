@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02317e44-305a-448f-81b0-e803777c4a3d" name="Default" comment="N.M.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/javascripts/logicMain.js" />
+    <list default="true" id="02317e44-305a-448f-81b0-e803777c4a3d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/game.ejs" afterPath="$PROJECT_DIR$/views/game.ejs" />
     </list>
@@ -35,21 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="game.ejs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="game.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/game.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="92" column="30" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
+            <state relative-caret-position="1137">
+              <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
               <folding>
                 <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+                <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logicMain.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logicMain.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/logicMain.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1320">
@@ -85,8 +84,8 @@
         <option value="$PROJECT_DIR$/views/proba.ejs" />
         <option value="$PROJECT_DIR$/views/index.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/style.css" />
-        <option value="$PROJECT_DIR$/views/game.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/logicMain.js" />
+        <option value="$PROJECT_DIR$/views/game.ejs" />
       </list>
     </option>
   </component>
@@ -303,7 +302,7 @@
       <workItem from="1486894464548" duration="9462000" />
       <workItem from="1487356769596" duration="8419000" />
       <workItem from="1487440322174" duration="1786000" />
-      <workItem from="1487499688987" duration="31956000" />
+      <workItem from="1487499688987" duration="32572000" />
     </task>
     <task id="LOCAL-00001" summary="N.M.">
       <created>1486690644382</created>
@@ -347,11 +346,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487529970575</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="N.M.">
+      <created>1487532423254</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1487532423254</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79168000" />
+    <option name="totallyTimeSpent" value="79784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2064" height="1128" extended-state="6" />
@@ -412,7 +418,7 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
           </folding>
         </state>
       </provider>
@@ -479,7 +485,7 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
           </folding>
         </state>
       </provider>
@@ -522,7 +528,7 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
           </folding>
         </state>
       </provider>
@@ -592,7 +598,7 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
           </folding>
         </state>
       </provider>
@@ -670,7 +676,7 @@
           <folding>
             <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
           </folding>
         </state>
       </provider>
@@ -763,23 +769,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/game.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="92" column="30" selection-start-line="92" selection-start-column="30" selection-end-line="92" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1487531649892" expanded="false" signature="8573:8585" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/logicMain.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1320">
           <caret line="47" column="45" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/game.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1137">
+          <caret line="110" column="30" selection-start-line="110" selection-start-column="30" selection-end-line="110" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <marker date="1487532966495" expanded="false" signature="8168:8180" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
