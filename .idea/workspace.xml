@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="02317e44-305a-448f-81b0-e803777c4a3d" name="Default" comment="N.M.">
+    <list default="true" id="02317e44-305a-448f-81b0-e803777c4a3d" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Untitled-4.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/proba.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="New folder (5).iws" />
@@ -321,7 +323,7 @@
       <workItem from="1487535481727" duration="3494000" />
       <workItem from="1487609345523" duration="2010000" />
       <workItem from="1487621838171" duration="599000" />
-      <workItem from="1487684412582" duration="17309000" />
+      <workItem from="1487684412582" duration="17469000" />
     </task>
     <task id="LOCAL-00001" summary="N.M.">
       <created>1486690644382</created>
@@ -407,11 +409,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487702992302</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="N.M.">
+      <created>1487703120272</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1487703120272</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103730000" />
+    <option name="totallyTimeSpent" value="103890000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2064" height="1128" extended-state="6" />
