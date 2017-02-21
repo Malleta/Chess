@@ -289,7 +289,7 @@ app.service('movement', function () {
 
             }
         };
-    
+
 
         //White = true / Black = false;
         this.whoseTurnIs = false;
@@ -310,6 +310,7 @@ app.controller("myCtrl", ['$scope', 'movement', function ($scope, movement) {
     //white = true
     //black = false
     $scope.whoseTurnIs = true;
+    //
 
 
     $scope.move = function (currentElement, currentPlacePosition) {
