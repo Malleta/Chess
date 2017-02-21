@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02317e44-305a-448f-81b0-e803777c4a3d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/images/Untitled-4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/proba.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="New folder (5).iws" />
@@ -323,7 +321,7 @@
       <workItem from="1487535481727" duration="3494000" />
       <workItem from="1487609345523" duration="2010000" />
       <workItem from="1487621838171" duration="599000" />
-      <workItem from="1487684412582" duration="17469000" />
+      <workItem from="1487684412582" duration="17606000" />
     </task>
     <task id="LOCAL-00001" summary="N.M.">
       <created>1486690644382</created>
@@ -420,7 +418,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103890000" />
+    <option name="totallyTimeSpent" value="104027000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2064" height="1128" extended-state="6" />
