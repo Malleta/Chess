@@ -16,194 +16,191 @@
 </head>
 <body ng-controller="myCtrl">
 
-<div>
-    <span style="color: white; font-size: large;" ng-show="whoseTurnIs">Beli je na potezu</span>
-    <span style="color: white; font-size: large;" ng-show="!whoseTurnIs">Crni je na potezu</span>
+<div id="wrapper" style="text-align: center;">
+<div class="matchStatus" style="display: inline-block; vertical-align:300px; margin: 30px;">
+    <p style="color: white; font-size: large;" ng-show="whoseTurnIs">Beli je na potezu</p>
+    <p style="color: white; font-size: large;" ng-show="!whoseTurnIs">Crni je na potezu</p>
+    <p style="color: white; font-size: large;">Broje poena beli = {{scoreWhite}}</p>
+    <p style="color: white; font-size: large;">Broje poena crni = {{scoreBlack}}</p>
 </div>
 
-<table id="chess_board" cellpadding="0" cellspacing="0" align="center">
-    <tr>
-        <td><a href="#">8</a></td>
-        <td id="A8" ng-click="move($event,'A8')" ><a href="#" class="black" >&#9820;</a></td>
-        <td id="B8" ng-click="move($event,'B8')" ><a href="#" class="black">&#9822;</a></td>
-        <td id="C8" ng-click="move($event,'C8')" ><a href="#" class="black">&#9821;</a></td>
-        <td id="D8" ng-click="move($event,'D8')"><a href="#" class="black">&#9819;</a></td>
-        <td id="E8" ng-click="move($event,'E8')"><a href="#" class="black">&#9818;</a></td>
-        <td id="F8" ng-click="move($event,'F8')"><a href="#" class="black">&#9821;</a></td>
-        <td id="G8" ng-click="move($event,'G8')"><a href="#" class="black">&#9822;</a></td>
-        <td id="H8" ng-click="move($event,'H8')"><a href="#" class="black">&#9820;</a></td>
-    </tr>
-    <tr>
-        <td><a href="#">7</a></td>
-        <td id="A7" ng-click="move($event,'A7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="B7" ng-click="move($event,'B7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="C7" ng-click="move($event,'C7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="D7" ng-click="move($event,'D7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="E7" ng-click="move($event,'E7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="F7" ng-click="move($event,'F7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="G7" ng-click="move($event,'G7')"><a href="#" class="black">&#9823;</a></td>
-        <td id="H7" ng-click="move($event,'H7')"><a href="#" class="black">&#9823;</a></td>
-    </tr>
-    <tr>
-        <td><a href="#">6</a></td>
-        <td id="A6" ng-click="move($event,'A6')"></td>
-        <td id="B6" ng-click="move($event,'B6')"></td>
-        <td id="C6" ng-click="move($event,'C6')"></td>
-        <td id="D6" ng-click="move($event,'D6')"></td>
-        <td id="E6" ng-click="move($event,'E6')"></td>
-        <td id="F6" ng-click="move($event,'F6')"></td>
-        <td id="G6" ng-click="move($event,'G6')"></td>
-        <td id="H6" ng-click="move($event,'H6')"></td>
-    </tr>
-    <tr>
-        <td><a href="#">5</a></td>
-        <td id="A5" ng-click="move($event,'A5')"></td>
-        <td id="B5" ng-click="move($event,'B5')"></td>
-        <td id="C5" ng-click="move($event,'C5')"></td>
-        <td id="D5" ng-click="move($event,'D5')"></td>
-        <td id="E5" ng-click="move($event,'E5')"></td>
-        <td id="F5" ng-click="move($event,'F5')"></td>
-        <td id="G5" ng-click="move($event,'G5')"></td>
-        <td id="H5" ng-click="move($event,'H5')"></td>
-    </tr>
-    <tr>
-        <td><a href="#">4</a></td>
-        <td id="A4" ng-click="move($event,'A4')"></td>
-        <td id="B4" ng-click="move($event,'B4')"></td>
-        <td id="C4" ng-click="move($event,'C4')"></td>
-        <td id="D4" ng-click="move($event,'D4')"></td>
-        <td id="E4" ng-click="move($event,'E4')"></td>
-        <td id="F4" ng-click="move($event,'F4')"></td>
-        <td id="G4" ng-click="move($event,'G4')"></td>
-        <td id="H4" ng-click="move($event,'H4')"></td>
-    </tr>
-    <tr>
-        <td><a href="#">3</a></td>
-        <td id="A3" ng-click="move($event,'A3')"></td>
-        <td id="B3" ng-click="move($event,'B3')"></td>
-        <td id="C3" ng-click="move($event,'C3')"></td>
-        <td id="D3" ng-click="move($event,'D3')"></td>
-        <td id="E3" ng-click="move($event,'E3')"></td>
-        <td id="F3" ng-click="move($event,'F3')"></td>
-        <td id="G3" ng-click="move($event,'G3')"></td>
-        <td id="H3" ng-click="move($event,'H3')"></td>
-    </tr>
-    <tr>
-        <td><a href="#">2</a></td>
-        <td id="A2" ng-click="move($event,'A2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="B2" ng-click="move($event,'B2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="C2" ng-click="move($event,'C2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="D2" ng-click="move($event,'D2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="E2" ng-click="move($event,'E2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="F2" ng-click="move($event,'F2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="G2" ng-click="move($event,'G2')"><a href="#" class="white">&#9817;</a></td>
-        <td id="H2" ng-click="move($event,'H2')"><a href="#" class="white">&#9817;</a></td>
-    </tr>
-    <tr>
-        <td><a href="#">1</a></td>
-        <td id="A1" ng-click="move($event,'A1')"><a href="#" class="white">&#9814;</a></td>
-        <td id="B1" ng-click="move($event,'B1')"><a href="#" class="white">&#9816;</a></td>
-        <td id="C1" ng-click="move($event,'C1')"><a href="#" class="white">&#9815;</a></td>
-        <td id="D1" ng-click="move($event,'D1')"><a href="#" class="white">&#9813;</a></td>
-        <td id="E1" ng-click="move($event,'E1')"><a href="#" class="white">&#9812;</a></td>
-        <td id="F1" ng-click="move($event,'F1')"><a href="#" class="white">&#9815;</a></td>
-        <td id="G1" ng-click="move($event,'G1')"><a href="#" class="white">&#9816;</a></td>
-        <td id="H1" ng-click="move($event,'H1')"><a href="#" class="white">&#9814;</a></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td id="A1"><a href="#">A</a></td>
-        <td id="B1"><a href="#">B</a></td>
-        <td id="C1"><a href="#">C</a></td>
-        <td id="D1"><a href="#">D</a></td>
-        <td id="E1"><a href="#">E</a></td>
-        <td id="F1"><a href="#">F</a></td>
-        <td id="G1"><a href="#">G</a></td>
-        <td id="H1"><a href="#">H</a></td>
-    </tr>
+<table id="chess_board" cellpadding="0" cellspacing="0" style="display: inline-block; margin: 30px;">
+<tr>
+    <td><a href="#">8</a></td>
+    <td id="A8" ng-click="move($event,'A8')"><a href="#" class="black">&#9820;</a></td>
+    <td id="B8" ng-click="move($event,'B8')"><a href="#" class="black">&#9822;</a></td>
+    <td id="C8" ng-click="move($event,'C8')"><a href="#" class="black">&#9821;</a></td>
+    <td id="D8" ng-click="move($event,'D8')"><a href="#" class="black">&#9819;</a></td>
+    <td id="E8" ng-click="move($event,'E8')"><a href="#" class="black">&#9818;</a></td>
+    <td id="F8" ng-click="move($event,'F8')"><a href="#" class="black">&#9821;</a></td>
+    <td id="G8" ng-click="move($event,'G8')"><a href="#" class="black">&#9822;</a></td>
+    <td id="H8" ng-click="move($event,'H8')"><a href="#" class="black">&#9820;</a></td>
+</tr>
+<tr>
+    <td><a href="#">7</a></td>
+    <td id="A7" ng-click="move($event,'A7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="B7" ng-click="move($event,'B7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="C7" ng-click="move($event,'C7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="D7" ng-click="move($event,'D7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="E7" ng-click="move($event,'E7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="F7" ng-click="move($event,'F7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="G7" ng-click="move($event,'G7')"><a href="#" class="black">&#9823;</a></td>
+    <td id="H7" ng-click="move($event,'H7')"><a href="#" class="black">&#9823;</a></td>
+</tr>
+<tr>
+    <td><a href="#">6</a></td>
+    <td id="A6" ng-click="move($event,'A6')"></td>
+    <td id="B6" ng-click="move($event,'B6')"></td>
+    <td id="C6" ng-click="move($event,'C6')"></td>
+    <td id="D6" ng-click="move($event,'D6')"></td>
+    <td id="E6" ng-click="move($event,'E6')"></td>
+    <td id="F6" ng-click="move($event,'F6')"></td>
+    <td id="G6" ng-click="move($event,'G6')"></td>
+    <td id="H6" ng-click="move($event,'H6')"></td>
+</tr>
+<tr>
+    <td><a href="#">5</a></td>
+    <td id="A5" ng-click="move($event,'A5')"></td>
+    <td id="B5" ng-click="move($event,'B5')"></td>
+    <td id="C5" ng-click="move($event,'C5')"></td>
+    <td id="D5" ng-click="move($event,'D5')"></td>
+    <td id="E5" ng-click="move($event,'E5')"></td>
+    <td id="F5" ng-click="move($event,'F5')"></td>
+    <td id="G5" ng-click="move($event,'G5')"></td>
+    <td id="H5" ng-click="move($event,'H5')"></td>
+</tr>
+<tr>
+    <td><a href="#">4</a></td>
+    <td id="A4" ng-click="move($event,'A4')"></td>
+    <td id="B4" ng-click="move($event,'B4')"></td>
+    <td id="C4" ng-click="move($event,'C4')"></td>
+    <td id="D4" ng-click="move($event,'D4')"></td>
+    <td id="E4" ng-click="move($event,'E4')"></td>
+    <td id="F4" ng-click="move($event,'F4')"></td>
+    <td id="G4" ng-click="move($event,'G4')"></td>
+    <td id="H4" ng-click="move($event,'H4')"></td>
+</tr>
+<tr>
+    <td><a href="#">3</a></td>
+    <td id="A3" ng-click="move($event,'A3')"></td>
+    <td id="B3" ng-click="move($event,'B3')"></td>
+    <td id="C3" ng-click="move($event,'C3')"></td>
+    <td id="D3" ng-click="move($event,'D3')"></td>
+    <td id="E3" ng-click="move($event,'E3')"></td>
+    <td id="F3" ng-click="move($event,'F3')"></td>
+    <td id="G3" ng-click="move($event,'G3')"></td>
+    <td id="H3" ng-click="move($event,'H3')"></td>
+</tr>
+<tr>
+    <td><a href="#">2</a></td>
+    <td id="A2" ng-click="move($event,'A2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="B2" ng-click="move($event,'B2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="C2" ng-click="move($event,'C2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="D2" ng-click="move($event,'D2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="E2" ng-click="move($event,'E2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="F2" ng-click="move($event,'F2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="G2" ng-click="move($event,'G2')"><a href="#" class="white">&#9817;</a></td>
+    <td id="H2" ng-click="move($event,'H2')"><a href="#" class="white">&#9817;</a></td>
+</tr>
+<tr>
+    <td><a href="#">1</a></td>
+    <td id="A1" ng-click="move($event,'A1')"><a href="#" class="white">&#9814;</a></td>
+    <td id="B1" ng-click="move($event,'B1')"><a href="#" class="white">&#9816;</a></td>
+    <td id="C1" ng-click="move($event,'C1')"><a href="#" class="white">&#9815;</a></td>
+    <td id="D1" ng-click="move($event,'D1')"><a href="#" class="white">&#9813;</a></td>
+    <td id="E1" ng-click="move($event,'E1')"><a href="#" class="white">&#9812;</a></td>
+    <td id="F1" ng-click="move($event,'F1')"><a href="#" class="white">&#9815;</a></td>
+    <td id="G1" ng-click="move($event,'G1')"><a href="#" class="white">&#9816;</a></td>
+    <td id="H1" ng-click="move($event,'H1')"><a href="#" class="white">&#9814;</a></td>
+</tr>
+<tr>
+    <td></td>
+    <td id="A1"><a href="#">A</a></td>
+    <td id="B1"><a href="#">B</a></td>
+    <td id="C1"><a href="#">C</a></td>
+    <td id="D1"><a href="#">D</a></td>
+    <td id="E1"><a href="#">E</a></td>
+    <td id="F1"><a href="#">F</a></td>
+    <td id="G1"><a href="#">G</a></td>
+    <td id="H1"><a href="#">H</a></td>
+</tr>
+</table>
 
-
+</div>
 
 
 <!--<canvas id="myCanvas" width="800px" height="800px">-->
-    <!--This text is displayed if your browser does not support HTML5 Canvas.-->
+<!--This text is displayed if your browser does not support HTML5 Canvas.-->
 <!--</canvas>-->
 
 
 <!--<script type="application/javascript" language="JavaScript">-->
 
 
-    <!--var c = document.getElementById("myCanvas");-->
-    <!--var ctx = c.getContext("2d");-->
+<!--var c = document.getElementById("myCanvas");-->
+<!--var ctx = c.getContext("2d");-->
 
 
-    <!--for(j=0;j<8;j++){-->
-        <!--ctx.moveTo(0,100*j);-->
-        <!--ctx.lineTo(800,100*j);-->
-        <!--ctx.stroke();-->
+<!--for(j=0;j<8;j++){-->
+<!--ctx.moveTo(0,100*j);-->
+<!--ctx.lineTo(800,100*j);-->
+<!--ctx.stroke();-->
 
-        <!--ctx.moveTo(100*j,0);-->
-        <!--ctx.lineTo(100*j,800);-->
-        <!--ctx.stroke();-->
-    <!--}-->
+<!--ctx.moveTo(100*j,0);-->
+<!--ctx.lineTo(100*j,800);-->
+<!--ctx.stroke();-->
+<!--}-->
 
-    <!--var left = 0;-->
-    <!--for(var a=0;a<8;a++) {-->
-        <!--for(var b=0; b<8;b+=2) {-->
-            <!--startX = b * 100;-->
-            <!--if(a%2==0) startX = (b+1) * 100;-->
-            <!--ctx.fillRect(startX + left,(a*100) ,100,100);-->
-        <!--}}-->
+<!--var left = 0;-->
+<!--for(var a=0;a<8;a++) {-->
+<!--for(var b=0; b<8;b+=2) {-->
+<!--startX = b * 100;-->
+<!--if(a%2==0) startX = (b+1) * 100;-->
+<!--ctx.fillRect(startX + left,(a*100) ,100,100);-->
+<!--}}-->
 
-    <!--///////////////////////////////////////////////////////////////-->
+<!--///////////////////////////////////////////////////////////////-->
 
-    <!--// Iscrtava figure-->
+<!--// Iscrtava figure-->
 
-    <!--var imageObj = new Image();-->
+<!--var imageObj = new Image();-->
 
-    <!--imageObj.src = '/images/Untitled-4.png';-->
+<!--imageObj.src = '/images/Untitled-4.png';-->
 
-    <!--imageObj.onload = function() {-->
-        <!--ctx.drawImage(imageObj, 0, 0);-->
-    <!--};-->
-    <!--ctx.save();-->
+<!--imageObj.onload = function() {-->
+<!--ctx.drawImage(imageObj, 0, 0);-->
+<!--};-->
+<!--ctx.save();-->
 
 
-    <!--c.addEventListener('click', function(evt) {-->
-        <!--var mousePos = getMousePos(c, evt);-->
-            <!--ctx.drawImage(imageObj, mousePos.x, mousePos.y);-->
-    <!--});-->
+<!--c.addEventListener('click', function(evt) {-->
+<!--var mousePos = getMousePos(c, evt);-->
+<!--ctx.drawImage(imageObj, mousePos.x, mousePos.y);-->
+<!--});-->
 
 <!--</script>-->
 
 
-
-
-
-
-
-
-
 <!--<div class="footer">-->
-    <!--<hr>-->
-    <!--<table class="centerTb">-->
+<!--<hr>-->
+<!--<table class="centerTb">-->
 
-        <!--<td>-->
-            <!--<p>Created by Nikola Maletić S38/15</p>-->
-        <!--</td>-->
+<!--<td>-->
+<!--<p>Created by Nikola Maletić S38/15</p>-->
+<!--</td>-->
 
-        <!--<td>-->
-            <!--<audio style="padding: 6px" controls>-->
-                <!--<source src="/images/Yiruma - River Flows In You.mp3" type="audio/mpeg">-->
-                <!--Your browser does not support the audio element.-->
-            <!--</audio>-->
-        <!--</td>-->
-    <!--</table>-->
+<!--<td>-->
+<!--<audio style="padding: 6px" controls>-->
+<!--<source src="/images/Yiruma - River Flows In You.mp3" type="audio/mpeg">-->
+<!--Your browser does not support the audio element.-->
+<!--</audio>-->
+<!--</td>-->
+<!--</table>-->
 <!--</div>-->
 
 
-    <video id="bgvid" playsinline autoplay muted loop>
-        <source src="/images/back.mp4" type="video/webm">
-    </video>
+<video id="bgvid" playsinline autoplay muted loop>
+    <source src="/images/back.mp4" type="video/webm">
+</video>
 </body>
 </html>
