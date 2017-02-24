@@ -15,7 +15,6 @@ app.service('movement', function () {
 
         this.selectPiece = function (currentElement, currentPlacePosition) {
 
-
             this.moveFromHorz = currentPlacePosition.charAt(0); // A
             this.moveFromVert = parseInt(currentPlacePosition.charAt(1)); // 2 7
             this.moveFrom = currentPlacePosition;
@@ -936,6 +935,7 @@ app.service('movement', function () {
                         if (ifPathIsClear) {
                             if (this.checkIfEmpty(this.moveFromHorz + i)) {
                                 ifPathIsClear = false;
+
                             }
                         }
                     }
@@ -1591,6 +1591,12 @@ app.service('movement', function () {
             }
 
         };
+    
+
+        // this.rokada = function () {
+        //
+        //     console.log('aa',findPawn)
+        // };
 
 
         //White = true / Black = false;
@@ -1608,19 +1614,15 @@ app.service('movement', function () {
 app.controller("myCtrl", ['$scope', 'movement', function ($scope, movement) {
 
     $scope.placeFrom = true;
+    $scope.whoseTurnIs = true;
     $scope.placeTo = "";
     $scope.innerHTML = '';
     $scope.scoreWhite = '0';
     $scope.scoreBlack = '0';
 
-    //white = true
-    //black = false
-    $scope.whoseTurnIs = true;
-    //
-
 
     $scope.move = function (currentElement, currentPlacePosition) {
-
+        
         console.log(currentElement)
         if (movement.doesSelectedPieceHasTurn(currentElement) && movement.checkIfEmpty(currentPlacePosition)) {
 
@@ -1709,8 +1711,9 @@ app.controller("myCtrl", ['$scope', 'movement', function ($scope, movement) {
                 //Polje nije prazno
                 movement.selectPiece(currentElement, currentPlacePosition);
             }
-
         }
+
+        $scope.whoseTurnIs = !movement.whoseTurnIs;
     };
 
 }]);
