@@ -21,26 +21,7 @@ app.service('movement', function () {
             this.moveFrom = currentPlacePosition;
             this.moveFromClasses = currentElement.target.className;
             this.moveFromInnerHTML = currentElement.target.innerHTML;
-            console.log(this.moveFromHorz, this.moveFromVert);
-
         };
-
-        // this.movePiece = function (currentPlacePosition) {
-        //     // console.log("Piece has been moved...");
-        //     this.moveTo = currentPlacePosition;
-        //
-        //     $('#' + this.moveFrom).find('a').remove();
-        //     $('#' + this.moveTo).append('<a href="#" class="' + this.moveFromClasses + '">' + this.moveFromInnerHTML + '</a>');
-        //
-        //
-        //     this.moveFrom = "";
-        //     this.moveTo = "";
-        //     this.moveFromClasses = "";
-        //     this.moveFromInnerHTML = "";
-        //
-        //     this.changeTurn();
-        //
-        // };
 
         this.moveHorz = function (num) {
             var fields = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
@@ -68,14 +49,6 @@ app.service('movement', function () {
             var temp = parseInt((fields.indexOf(word)));
 
             return temp + 1;
-        };
-
-        this.moveVert1 = function (word) {
-        var fields = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-
-        var temp = parseInt((fields.indexOf(word)));
-
-        return temp;
         };
 
         this.moveHorzNumb = function (num) {
@@ -111,23 +84,6 @@ app.service('movement', function () {
 
             return tempClass == this.whoseTurnIs
 
-        };
-
-        this.eatPiece = function (currentPlacePosition) {
-            // console.log("Piece has been moved...");
-            this.moveTo = currentPlacePosition;
-
-            $('#' + this.moveFrom).find('a').remove();
-            $('#' + this.moveTo).find('a').remove();
-            $('#' + this.moveTo).append('<a href="#" class="' + this.moveFromClasses + '">' + this.moveFromInnerHTML + '</a>');
-
-
-            this.moveFrom = "";
-            this.moveTo = "";
-            this.moveFromClasses = "";
-            this.moveFromInnerHTML = "";
-
-            this.changeTurn();
         };
 
         this.eatPiecePawnWhite = function (currentPlacePosition) {
@@ -205,7 +161,7 @@ app.service('movement', function () {
                 //Gore ili Dole
                 directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
 
-            } else if(this.moveFromVert == this.moveToVert){
+            } else if (this.moveFromVert == this.moveToVert) {
 
                 directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
             }
@@ -233,10 +189,10 @@ app.service('movement', function () {
                     }
                     break;
                 case 'Right':
-                    console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
-                    for (var i = this.moveVert(this.moveFromHorz)+1; i <= this.moveVert(this.moveToHorz); i++) {
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
                         if (ifPathIsClear) {
-                            console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
 
                             if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
                                 ifPathIsClear = false;
@@ -245,9 +201,9 @@ app.service('movement', function () {
                     }
                     break;
                 case 'Left':
-                    for (var i = this.moveVert(this.moveFromHorz)-1; i >= this.moveVert(this.moveToHorz); i--) {
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
                         if (ifPathIsClear) {
-                            console.log('lel1',this.moveHorzNumb(i), this.moveFromVert)
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
 
                             if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
                                 ifPathIsClear = false;
@@ -361,88 +317,72 @@ app.service('movement', function () {
 
         this.eatPieceBishopWhite = function (currentPlacePosition) {
 
+
             this.moveTo = currentPlacePosition;
 
 
             this.moveToHorz = currentPlacePosition.charAt(0); // A
             this.moveToVert = parseInt(currentPlacePosition.charAt(1)); // 3 6
 
-
-
-            var directionToGo;
-            var ifPathIsClear = true;
-
-            if (this.moveFromHorz == this.moveToHorz) {
-                //Gore ili Dole
-                directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
-
-            } else if(this.moveFromVert == this.moveToVert){
-
-                directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
-            }
-
-
-            switch (directionToGo) {
-                case 'Up':
-
-                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
-                        if (ifPathIsClear) {
-                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
-                                ifPathIsClear = false;
-                            }
-                        }
-                    }
-
-                    break;
-                case 'Down':
-                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i--) {
-                        if (ifPathIsClear) {
-                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
-                                ifPathIsClear = false;
-                            }
-                        }
-                    }
-                    break;
-                case 'Right':
-                    console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
-                    for (var i = this.moveVert(this.moveFromHorz)+1; i <= this.moveVert(this.moveToHorz); i++) {
-                        if (ifPathIsClear) {
-                            console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
-
-                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
-                                ifPathIsClear = false;
-                            }
-                        }
-                    }
-                    break;
-                case 'Left':
-                    for (var i = this.moveVert(this.moveFromHorz)-1; i >= this.moveVert(this.moveToHorz); i--) {
-                        if (ifPathIsClear) {
-                            console.log('lel1',this.moveHorzNumb(i), this.moveFromVert)
-
-                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
-                                ifPathIsClear = false;
-                            }
-                        }
-                    }
-                    break;
-            }
-
-
-
-
-
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var ifPathIsClear = true;
 
-            if (this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+
+                for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                    tempHorz++;
+                    if (ifPathIsClear) {
+                        if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                            console.log(this.moveHorzNumb(tempHorz) + j)
+                            ifPathIsClear = false;
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+                if (this.moveFromVert < this.moveToVert) {
+
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //2<=3
+                        tempHorz--;
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz++; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -469,18 +409,81 @@ app.service('movement', function () {
             this.moveToHorz = currentPlacePosition.charAt(0); // A
             this.moveToVert = parseInt(currentPlacePosition.charAt(1)); // 3 6
 
-
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var ifPathIsClear = true;
 
-            if (this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+                if (this.moveFromVert < this.moveToVert) {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                        tempHorz--;
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+
+                if (this.moveFromVert > this.moveToVert) {
+                    console.log('aj', j, this.moveFromVert - 1, this.moveToVert)
+
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //2<=3
+                        tempHorz++;
+
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            console.warn(this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear)
+            console.warn(this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear)
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -508,16 +511,120 @@ app.service('movement', function () {
 
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var directionToGo;
+            var ifPathIsClear = true;
 
-            if (this.moveFromHorz == this.moveToHorz || this.moveFromVert == this.moveToVert || this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz
-                || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+            if (this.moveFromHorz == this.moveToHorz) {
+                //Gore ili Dole
+                directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
+
+            } else if (this.moveFromVert == this.moveToVert) {
+
+                directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
+            }
+
+
+            switch (directionToGo) {
+                case 'Up':
+
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+
+                    break;
+                case 'Down':
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Right':
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Left':
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+
+                for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                    tempHorz++;
+                    if (ifPathIsClear) {
+                        if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                            console.log(this.moveHorzNumb(tempHorz) + j)
+                            ifPathIsClear = false;
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+                if (this.moveFromVert < this.moveToVert) {
+
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //2<=3
+                        tempHorz--;
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz++; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if (this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -544,16 +651,120 @@ app.service('movement', function () {
 
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var directionToGo;
+            var ifPathIsClear = true;
 
-            if (this.moveFromHorz == this.moveToHorz || this.moveFromVert == this.moveToVert || this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz
-                || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+            if (this.moveFromHorz == this.moveToHorz) {
+                //Gore ili Dole
+                directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
+
+            } else if (this.moveFromVert == this.moveToVert) {
+
+                directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
+            }
+
+
+            switch (directionToGo) {
+                case 'Up':
+
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+
+                    break;
+                case 'Down':
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Right':
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Left':
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+
+                for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                    tempHorz++;
+                    if (ifPathIsClear) {
+                        if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                            console.log(this.moveHorzNumb(tempHorz) + j)
+                            ifPathIsClear = false;
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+                if (this.moveFromVert < this.moveToVert) {
+
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //2<=3
+                        tempHorz--;
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz++; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if (this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -712,7 +923,7 @@ app.service('movement', function () {
                 //Gore ili Dole
                 directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
 
-            } else if(this.moveFromVert == this.moveToVert){
+            } else if (this.moveFromVert == this.moveToVert) {
 
                 directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
             }
@@ -740,10 +951,10 @@ app.service('movement', function () {
                     }
                     break;
                 case 'Right':
-                    console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
-                    for (var i = this.moveVert(this.moveFromHorz)+1; i <= this.moveVert(this.moveToHorz); i++) {
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
                         if (ifPathIsClear) {
-                            console.log('lel1',this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
 
                             if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
                                 ifPathIsClear = false;
@@ -752,9 +963,9 @@ app.service('movement', function () {
                     }
                     break;
                 case 'Left':
-                    for (var i = this.moveVert(this.moveFromHorz)-1; i >= this.moveVert(this.moveToHorz); i--) {
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
                         if (ifPathIsClear) {
-                            console.log('lel1',this.moveHorzNumb(i), this.moveFromVert)
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
 
                             if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
                                 ifPathIsClear = false;
@@ -872,18 +1083,65 @@ app.service('movement', function () {
             this.moveToHorz = currentPlacePosition.charAt(0); // A
             this.moveToVert = parseInt(currentPlacePosition.charAt(1)); // 3 6
 
-
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var ifPathIsClear = true;
 
-            if (this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+
+                for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                    tempHorz++;
+                    if (ifPathIsClear) {
+                        if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                            console.log(this.moveHorzNumb(tempHorz) + j)
+                            ifPathIsClear = false;
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+                if (this.moveFromVert < this.moveToVert) {
+
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //2<=3
+                        tempHorz--;
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz++; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -909,18 +1167,81 @@ app.service('movement', function () {
             this.moveToHorz = currentPlacePosition.charAt(0); // A
             this.moveToVert = parseInt(currentPlacePosition.charAt(1)); // 3 6
 
-
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var ifPathIsClear = true;
 
-            if (this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+                if (this.moveFromVert < this.moveToVert) {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                        tempHorz--;
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+
+                if (this.moveFromVert > this.moveToVert) {
+                    console.log('aj', j, this.moveFromVert - 1, this.moveToVert)
+
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //2<=3
+                        tempHorz++;
+
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            console.warn(this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear)
+            console.warn(this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear)
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -934,6 +1255,7 @@ app.service('movement', function () {
 
                 this.changeTurn();
 
+
             }
         };
 
@@ -946,16 +1268,120 @@ app.service('movement', function () {
 
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var directionToGo;
+            var ifPathIsClear = true;
 
-            if (this.moveFromHorz == this.moveToHorz || this.moveFromVert == this.moveToVert || this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz ||
-                this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+            if (this.moveFromHorz == this.moveToHorz) {
+                //Gore ili Dole
+                directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
+
+            } else if (this.moveFromVert == this.moveToVert) {
+
+                directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
+            }
+
+
+            switch (directionToGo) {
+                case 'Up':
+
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+
+                    break;
+                case 'Down':
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Right':
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Left':
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+
+                for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                    tempHorz++;
+                    if (ifPathIsClear) {
+                        if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                            console.log(this.moveHorzNumb(tempHorz) + j)
+                            ifPathIsClear = false;
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+                if (this.moveFromVert < this.moveToVert) {
+
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //2<=3
+                        tempHorz--;
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz++; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            if (this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
@@ -981,16 +1407,134 @@ app.service('movement', function () {
 
             var temp = this.moveToVert - this.moveFromVert;
 
-            var tempUpVert = this.moveFromVert + temp;
-            var tempDownVert = this.moveFromVert - temp;
+            var tempVert = this.moveFromVert + temp;
 
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
+            var directionToGo;
+            var ifPathIsClear = true;
 
-            if (this.moveFromHorz == this.moveToHorz || this.moveFromVert == this.moveToVert || this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz
-                || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz || this.moveToVert == tempDownVert && this.moveToHorz == tempRightHorz ||
-                this.moveToVert == tempDownVert && this.moveToHorz == tempLeftHorz) {
+            if (this.moveFromHorz == this.moveToHorz) {
+                //Gore ili Dole
+                directionToGo = this.moveToVert > this.moveFromVert ? 'Up' : 'Down';
+
+            } else if (this.moveFromVert == this.moveToVert) {
+
+                directionToGo = this.moveVert(this.moveToHorz) > this.moveVert(this.moveFromHorz) ? 'Right' : 'Left';
+            }
+
+
+            switch (directionToGo) {
+                case 'Up':
+
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+
+                    break;
+                case 'Down':
+                    for (var i = this.moveFromVert + 1; i <= this.moveToVert; i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Right':
+                    console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert(this.moveToHorz); i++) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveVert(this.moveFromHorz), this.moveVert(this.moveToHorz))
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+                case 'Left':
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert(this.moveToHorz); i--) {
+                        if (ifPathIsClear) {
+                            console.log('lel1', this.moveHorzNumb(i), this.moveFromVert)
+
+                            if (this.checkIfEmpty(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    break;
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
+
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
+                if (this.moveFromVert < this.moveToVert) {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //gore-desno
+
+                        tempHorz--;
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+            if (this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz) { // gore - levo
+                var tempHorz = parseInt(this.moveVert(this.moveFromHorz));
+
+                if (this.moveFromVert > this.moveToVert) {
+                    console.log('aj', j, this.moveFromVert - 1, this.moveToVert)
+
+                    for (var j = this.moveFromVert - 1; j >= this.moveToVert; j--) { //2<=3
+                        tempHorz++;
+
+                        this.moveHorzNumb(tempHorz);
+
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                console.log(this.moveHorzNumb(tempHorz) + j)
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                } else {
+                    for (var j = this.moveFromVert + 1; j <= this.moveToVert; j++) { //dole-desno D4 F2
+                        tempHorz--; // -- za levo
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveHorzNumb(tempHorz) + j)) {
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+
+
+            if (this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+                this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear) {
 
 
                 $('#' + this.moveFrom).find('a').remove();
