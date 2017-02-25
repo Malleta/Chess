@@ -133,7 +133,6 @@ app.service('movement', function () {
                 this.moveFromInnerHTML = "";
 
                 this.changeTurn();
-
             }
 
         };
@@ -419,7 +418,6 @@ app.service('movement', function () {
 
                 this.changeTurn();
 
-
             }
         };
 
@@ -526,7 +524,6 @@ app.service('movement', function () {
 
         this.eatPieceQueenWhite = function (currentPlacePosition) {
 
-
             this.moveTo = currentPlacePosition;
             this.moveToHorz = currentPlacePosition.charAt(0); // A
             this.moveToVert = parseInt(currentPlacePosition.charAt(1)); // 3 6
@@ -538,8 +535,8 @@ app.service('movement', function () {
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + temp);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - temp);
 
-            var directionToGo;
             var ifPathIsClear = true;
+            var directionToGo;
 
             if (this.moveFromHorz == this.moveToHorz) {
                 //Gore ili Dole
@@ -597,6 +594,7 @@ app.service('movement', function () {
                     break;
             }
 
+
             if (this.moveToVert == tempVert && this.moveToHorz == tempRightHorz) { // gore - desno
 
                 var tempHorz = parseInt(this.moveVert(this.moveFromHorz)); //C3 g5
@@ -643,6 +641,9 @@ app.service('movement', function () {
                 }
 
             }
+    console.log(this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
+        this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
+        this.moveToVert == tempVert && this.moveToHorz == tempLeftHorz && ifPathIsClear);
 
             if (this.moveFromHorz == this.moveToHorz && ifPathIsClear || this.moveFromVert == this.moveToVert && ifPathIsClear ||
                 this.moveToVert == tempVert && this.moveToHorz == tempRightHorz && ifPathIsClear ||
@@ -660,8 +661,6 @@ app.service('movement', function () {
                 this.moveFromInnerHTML = "";
 
                 this.changeTurn();
-
-
             }
         };
 
