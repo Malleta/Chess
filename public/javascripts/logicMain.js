@@ -8,6 +8,30 @@ app.service('movement', function () {
             return findPawn.length > 0;
         };
 
+        this.checkIfKingWhite = function (currentPlace) {
+            var findPawn = $('#' + currentPlace).find('a');
+            if(findPawn.prevObject["0"].textContent == '♔'){
+                console.warn('Sah nad BELIM kraljem.');
+                this.checkKingWhite = false;
+            } else {
+                console.warn('Vise nije sah nad CRNIM kraljem.');
+                this.checkKingWhite = true;
+            }
+        };
+
+        this.checkIfKingBlack = function (currentPlace) {
+        var findPawn = $('#' + currentPlace).find('a');
+            if(this.checkIfEmpty(currentPlace)){
+                if(findPawn.prevObject["0"].textContent == '♚'){
+                console.warn('Sah nad CRNIM kraljem.');
+                this.checkKingBlack = false;
+                } else {
+                console.warn('Vise nije sah nad CRNIM kraljem.');
+                this.checkKingBlack = true;
+                }
+            }
+    };
+
         this.ifPieceIsSelected = function () {
             // console.log('Is piece selected', this.moveFrom.length > 0);
             return this.moveFrom.length > 0;
@@ -95,7 +119,6 @@ app.service('movement', function () {
             tempUpVert++;
             var tempRightHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) + 1);
             var tempLeftHorz = this.moveHorzNumb(this.moveVert(this.moveFromHorz) - 1);
-
 
             if (this.moveToVert == tempUpVert && this.moveToHorz == tempRightHorz || this.moveToVert == tempUpVert && this.moveToHorz == tempLeftHorz) {
 
@@ -930,12 +953,10 @@ app.service('movement', function () {
 
             switch (directionToGo) {
                 case 'Up':
-
                     for (var i = this.moveFromVert + 1; i <= this.moveToVert; i++) {
                         if (ifPathIsClear) {
                             if (this.checkIfEmpty(this.moveFromHorz + i)) {
                                 ifPathIsClear = false;
-
                             }
                         }
                     }
@@ -989,6 +1010,38 @@ app.service('movement', function () {
                 this.changeTurn();
             }
 
+                    for (var i = this.moveFromVert + 1; i <= 8; i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i) && this.checkIfKingBlack(this.moveFromHorz + i)) {
+                                this.checkIfKingBlack(this.moveFromHorz + i);
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    for (var i = this.moveFromVert + 1; i <= 1; i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i) && this.checkIfKingBlack(this.moveFromHorz + i)) {
+                                this.checkIfKingBlack(this.moveFromHorz + i);
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    for (var i = this.moveVert(this.moveFromHorz) + 1; i <= this.moveVert('H'); i++) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i) && this.checkIfKingBlack(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                this.checkIfKingBlack(this.moveHorzNumb(i) + this.moveFromVert);
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
+                    for (var i = this.moveVert(this.moveFromHorz) - 1; i >= this.moveVert('A'); i--) {
+                        if (ifPathIsClear) {
+                            if (this.checkIfEmpty(this.moveFromHorz + i) && this.checkIfKingBlack(this.moveHorzNumb(i) + this.moveFromVert)) {
+                                this.checkIfKingBlack(this.moveHorzNumb(i) + this.moveFromVert);
+                                ifPathIsClear = false;
+                            }
+                        }
+                    }
         };
 
         this.movePieceKnightWhite = function (currentPlacePosition) {
@@ -1605,6 +1658,8 @@ app.service('movement', function () {
         this.moveTo = "";
         this.moveFromClasses = "";
         this.moveFromInnerHTML = "";
+        this.checkKingWhite = true;
+        this.checkKingBlack = true;
         var whiteEaten = '0';
         var blackEaten = '0';
     }
@@ -1622,8 +1677,7 @@ app.controller("myCtrl", ['$scope', 'movement', function ($scope, movement) {
 
 
     $scope.move = function (currentElement, currentPlacePosition) {
-        
-        console.log(currentElement)
+
         if (movement.doesSelectedPieceHasTurn(currentElement) && movement.checkIfEmpty(currentPlacePosition)) {
 
             if (movement.moveFromClasses == 'white' && movement.checkIfEmpty(currentPlacePosition)) {
